@@ -1,0 +1,10 @@
+<p class="char-statistics">合計：{{characters.length}} 字</p>
+
+<ul class="char-list">
+  <li class="char-item" *ngFor="let char of characters">
+    <a class="char-link" [routerLink]="['/characters', char.number]">
+      <span class="char-no">{{char.number}}:</span>
+      <span>{{char.translationTexts.join('')}}</span>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,111 @@
+<h2>錄入字形</h2>
+
+<form #characterForm="ngForm" (submit)="editCharacter($event)">
+  <dl>
+    <dt>字符編碼：</dt>
+    <dd>
+      <input type="text"
+             name="fontCode"
+             [(ngModel)]="char.fontCode">
+      <span class="oracle">{{char.fontCode}}</span>
+    </dd>
+
+    <dt>字形編號：</dt>
+    <dd>
+      <input type="number"
+             name="number"
+             placeholder="如：1"
+             [(ngModel)]="char.number">
+    </dd>
+
+    <dt>部首編號：</dt>
+    <dd>
+      <ul>
+        <li *ngFor="let component of char.components; let i = index;">
+          <input type="number"
+                 [name]="'component-' + i"
+                 placeholder="如：1"
+                 [(ngModel)]="component.value">
+          <span class="oracle">{{component.fontCode}}</span>
+        </li>
+      </ul>
+    </dd>
+
+    <dt>變體數：</dt>
+    <dd>
+      <input type="number"
+             name="variantCount"
+             placeholder="如：4"
+             defaultValue="1"
+             #variantCount
+             [(ngModel)]="char.variantCount">
+    </dd>
+
+    <dt>隸定：</dt>
+    <dd class="char-trans">
+      <ul>
+        <li class="char-trans-item"
+            *ngFor="let trans of char.translations; let i = index; let first = first; let last = last;">
+          <input type="text"
+                 [name]="'trans-name-' + i"
+                 placeholder="漢字，如：人"
+                 [(ngModel)]="trans.name">
+          <input type="text"
+                 [name]="'trans-pinyin-' + i"
+                 placeholder="拼音，如：ren"
+                 [(ngModel)]="trans.pinyin">
+          <input type="number"
+                 [name]="'trans-stroke-count-' + i"
+                 placeholder="筆畫，如：2"
+                 [(ngModel)]="trans.strokeCount">
+          <input type="number"
+                 [name]="'trans-variant-no-' + i"
+                 placeholder="變體號，如：1"
+                 [(ngModel)]="trans.variantNo">
+
+          <button type="button"
+                  class="char-add"
+                  *ngIf="char.translations.length > 1"
+                  (click)="removeTrans(i)">-</button>
+
+          <button type="button"
+                  class="char-add"
+                  *ngIf="last"
+                  (click)="addTrans()">＋</button>
+        </li>
+      </ul>
+    </dd>
+
+    <dt>釋義：</dt>
+    <dd class="char-meaning">
+      <ul class="char-meaning-list">
+        <li *ngFor="let meaning of char.meanings; let i = index; let last = last;">
+          <input type="text"
+                 [name]="'meaning-' + i"
+                 [(ngModel)]="meaning.value">
+
+          <button type="button"
+                  class="char-add"
+                  *ngIf="char.meanings.length > 1"
+                  (click)="removeMeaning(i)">-</button>
+
+          <button type="button"
+                  class="char-add"
+                  *ngIf="last"
+                  (click)="addMeaning()">＋</button>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <button type="submit" class="form-submit-btn">編輯</button>
+</form>
+
+<!--<h3>預覽</h3>-->
+
+<p>
+  <a *ngIf="char.number > 1"
+     [routerLink]="['/characters', char.number - 1]">上一字</a>
+  <a class="char-next" *ngIf="char.number < 4311"
+     [routerLink]="['/characters', char.number + 1]">下一字</a>
+</p>

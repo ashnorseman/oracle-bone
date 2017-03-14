@@ -1,0 +1,27 @@
+
+.char-trans-item {
+  overflow: auto;
+  margin-bottom: .5rem;
+}
+
+.char-trans-item:last-child {
+  margin-bottom: 0;
+}
+
+.char-trans input {
+  width: 9rem;
+}
+
+.char-meaning input {
+  margin-bottom: 1rem;
+  width: 37.5rem;
+}
+
+.char-add {
+  padding: 0;
+  width: 2rem;
+}
+
+.char-next {
+  float: right;
+}

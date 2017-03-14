@@ -1,0 +1,28 @@
+
+.char-statistics {
+  text-align: center;
+}
+
+.char-list {
+  margin-top: 1rem;
+}
+
+.char-item {
+  float: left;
+  width: 16.6666667%;
+}
+
+.char-link {
+  display: block;
+}
+
+.char-link:hover {
+  background: whitesmoke;
+}
+
+.char-no {
+  display: inline-block;
+  font-family: Monaco, monospace;
+  text-align: right;
+  width: 3.5rem;
+}

@@ -1,0 +1,28 @@
+<h2>錄入部首</h2>
+
+<form #componentForm="ngForm" (submit)="addComponent(componentForm, $event)">
+  <dl>
+    <dt>字形編號：</dt>
+    <dd>
+      <input type="number"
+             name="number"
+             disabled
+             placeholder="輸入編號，如：1234"
+             [(ngModel)]="number">
+
+      <button type="submit" disabled>添加</button>
+    </dd>
+  </dl>
+</form>
+
+<h3>部首列表</h3>
+
+<ul class="comp-list">
+  <li class="comp-item"
+      *ngFor="let component of components">
+    <a class="comp-link"
+       [routerLink]="['/components', component.number]">
+      {{component.translationTexts.length ? component.translationTexts.join('') : component.number}}
+    </a>
+  </li>
+</ul>

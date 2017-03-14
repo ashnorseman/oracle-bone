@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="nav-top">
+  <a class="nav-top-brand" routerLink="/">甲骨文字典</a>
+
+  <ul class="nav-top-list">
+    <li class="nav-top-item">
+      <a class="nav-top-link" routerLink="/search" routerLinkActive="active">查詢</a>
+    </li>
+
+    <li class="nav-top-item">
+      <a class="nav-top-link" routerLink="/components" routerLinkActive="active">錄入部首</a>
+    </li>
+
+    <li class="nav-top-item">
+      <a class="nav-top-link" routerLink="/characters" routerLinkActive="active">錄入字形</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

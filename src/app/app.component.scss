@@ -1,0 +1,55 @@
+/**
+ * App Style
+ */
+
+.nav-top {
+  box-shadow: inset 0 -1px 0 slategray;
+  line-height: 3rem;
+  overflow: auto;
+  padding: 0 calc(50% - 480px);
+  position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.nav-top-brand {
+  display: block;
+  float: left;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.nav-top-list {
+  float: right;
+}
+
+.nav-top-item {
+  float: left;
+}
+
+.nav-top-link {
+  display: block;
+  padding: 0 1rem;
+}
+
+.nav-top-link:hover {
+  background: whitesmoke;
+  box-shadow: inset 0 -1px 0 slategray;
+}
+
+.nav-top-link.active {
+  background: gainsboro;
+  box-shadow: inset 0 -1px 0 slategray;
+}
+
+.container {
+  display: block;
+  overflow: auto;
+  padding: 1rem calc(50% - 480px);
+  position: fixed;
+    top: 3rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

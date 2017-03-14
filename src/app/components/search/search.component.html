@@ -1,0 +1,58 @@
+<h2>查詢</h2>
+
+<form>
+  <dl>
+    <dt>按漢字查詢：</dt>
+    <dd>
+      <input type="text" placeholder="輸入漢字，如：人">
+      <button type="button">搜索</button>
+    </dd>
+
+    <dt>按拼音查詢：</dt>
+    <dd>
+      <input type="text" placeholder="輸入拼音，如：ren">
+      <button type="button">搜索</button>
+    </dd>
+
+    <dt>按筆畫查詢：</dt>
+    <dd>
+      <input type="number" placeholder="輸入筆畫，如：2">
+      <button type="button">搜索</button>
+    </dd>
+  </dl>
+</form>
+
+<h2>按甲骨文部首查詢</h2>
+
+<h3>部首列表</h3>
+
+<div class="comp-list-holder">
+  <ul class="comp-list">
+    <li class="comp-item"
+        *ngFor="let component of components"
+        [class.active]="queryComponentNumbers.includes(component.number)"
+        (click)="toggleComponent(component.number)">
+      <span class="comp-image oracle">{{component.fontCode ? component.fontCode[0] : ''}}</span>
+      {{component.translationTexts.length ? component.translationTexts[0] : component.number}}
+    </li>
+  </ul>
+
+  <button type="button"
+          class="comp-clear-btn"
+          (click)="clearComponents()">清除</button>
+</div>
+
+<h3>檢索結果</h3>
+
+<ul class="result-list">
+  <li class="result-item"
+      *ngFor="let character of characters">
+    <a class="result-link"
+       target="_blank"
+       [routerLink]="['/characters', character.number]">
+      <span class="result-image oracle">{{character.fontCode ? character.fontCode[0] : ''}}</span>
+      <span>{{character.translationTexts.length ? character.translationTexts.join('') : '　'}}</span>
+      <span class="result-number">{{character.number}}</span>
+    </a>
+  </li>
+</ul>

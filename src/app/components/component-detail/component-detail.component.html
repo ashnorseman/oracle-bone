@@ -1,0 +1,20 @@
+<h2>{{component.number}}：{{component.translationTexts.join('')}}</h2>
+
+<h3>編輯此部首的字形</h3>
+
+<textarea class="comp-containing" [(ngModel)]="componentChars"></textarea>
+
+<button type="button"
+        class="comp-submit"
+        (click)="saveComponentChars()">保存</button>
+
+<h3>字形表</h3>
+
+<ul class="char-list">
+  <li class="char-item" *ngFor="let char of characters">
+    <a class="char-link" [routerLink]="['/characters', char.number]">
+      <span class="char-no">{{char.number}}:</span>
+      <span>{{char.translationTexts.join('')}}</span>
+    </a>
+  </li>
+</ul>
