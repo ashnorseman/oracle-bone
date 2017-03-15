@@ -4,6 +4,7 @@
   <li class="char-item" *ngFor="let char of characters">
     <a class="char-link" [routerLink]="['/characters', char.number]">
       <span class="char-no">{{char.number}}:</span>
+      <span class="oracle">{{char.fontCode}}</span>
       <span>{{char.translationTexts.join('')}}</span>
     </a>
   </li>
